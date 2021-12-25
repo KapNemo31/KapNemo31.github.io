@@ -34,9 +34,15 @@ body {
   text-decoration: none;
   background-repeat: no-repeat;
   background-position: left;
+  
 }
 
 .header-email {
+  padding-left: 30px;
+  background-image: url("img/icon-email-header.svg");
+}
+
+.header-telegram{
   padding-left: 30px;
   background-image: url("img/icon-email-header.svg");
 }
@@ -191,4 +197,10 @@ body {
 .footer-phone {
   padding-left: 25px;
   background-image: url("img/icon-phone-footer.svg");
+}
+
+
+.footer-telegram {
+  padding-left: 25px;
+  background-image: url("img/icon-email-footer.svg");
 }
