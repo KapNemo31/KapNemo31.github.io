@@ -1,0 +1,206 @@
+@import url('http://fonts.cdnfonts.com/css/gilroy-bold');
+
+
+:root{
+    font-size: 18px;
+    --main-color: #828282;
+}
+
+.container {
+    width: 1000px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+* {
+    font-weight: normal;
+    font-style: normal;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    width: 1000px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    width: 1050px;
+    max-width: 100%;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ul li a {
+    font-family: 'Gilroy-Bold';
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 1rem;
+    line-height: 22px;
+}
+
+a {
+    font-family: 'Gilroy-Bold';
+    color: #000000;
+    font-size: 1rem;
+    line-height: 22px;
+}
+
+.choose {
+    color: black;
+}
+
+h2 {
+    font-family: 'Gilroy-Bold';
+}
+
+p {
+    font-family: 'Gilroy-Medium';
+}
+
+.first h2 {
+    font-size: 3rem;
+    line-height: 59px;
+}
+
+.first p {
+    font-family: 'Gilroy-Medium';
+    font-size: 1rem;
+    line-height: 22px;
+    margin-top: 90px;
+}
+
+.forflex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.first .firstIMG {
+    background-image: url("../img/Baby.jpg");
+    height: 450px;
+    background-position: center top;
+    width: 1000px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about {
+    background: #F6F6F6;
+    margin: 0 auto;
+}
+
+section {
+    padding: 120px 0;
+}
+
+.about h2 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 42px;
+    text-align: center;
+}
+
+.about p {
+    font-size: 1rem;
+    line-height: 22px;
+    text-align: center;
+    padding: 10px;
+}
+
+.skills .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.skills h2,
+p {
+    align-items: center;
+}
+
+.skills .forflex div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio h2 {
+    font-size: 2rem;
+    line-height: 42px;
+    text-align: center;
+}
+
+
+.portfolio p {
+    font-family: 'Gilroy-Medium';
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+}
+
+.portfolio img {
+    max-width: 1040px;
+    width: 100%;
+    height: auto;
+}
+
+footer h2 {
+    font-family: 'Gilroy-Bold';
+    font-size: 34px;
+    line-height: 42px;
+}
+
+footer p {
+    font-family: 'Gilroy-Medium';
+    font-size: 1rem;
+    line-height: 22px;
+}
+
+footer button {
+    font-family: 'Gilroy-Bold';
+    font-size: 1rem;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #070707;
+    border-radius: 20px;
+
+
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.icon {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.icon img {
+    width: 50px;
+    height: auto;
+}
