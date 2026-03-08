@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>С 8 марта, Ника</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar hidden" id="progress-bar">
+    <div class="progress-hearts" id="progress-hearts">
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+      <span class="p-heart">&#9825;</span>
+    </div>
+    <p class="progress-text"><span id="pieces-count">0</span>/8</p>
+  </div>
+
+  <!-- 1. Welcome -->
+  <div class="screen active" id="screen-welcome">
+    <h1 class="title">С 8 марта, Ника</h1>
+    <p class="subtitle">Я приготовил для тебя небольшое приключение.<br>Чтобы открыть поздравление, собери все частички сердца.</p>
+    <button class="btn glow" id="btn-start">Начать приключение</button>
+  </div>
+
+  <!-- 2. Hidden Object -->
+  <div class="screen" id="screen-hidden">
+    <p class="screen-title">Найди спрятанное сердечко</p>
+    <div class="hidden-field" id="hidden-field"></div>
+  </div>
+
+  <!-- 3. Riddle 1 -->
+  <div class="screen" id="screen-riddle1">
+    <div class="riddle-box">
+      <p class="riddle-emoji">&#129300;</p>
+      <p class="riddle-text">Утром его ищут,<br>вечером о нём мечтают.<br>А без него день кажется пустым.</p>
+      <div class="riddle-options">
+        <button class="btn option" data-screen="riddle1" data-correct="false">Кофе</button>
+        <button class="btn option" data-screen="riddle1" data-correct="false">Поцелуй</button>
+        <button class="btn option" data-screen="riddle1" data-correct="true">Объятия</button>
+      </div>
+      <p class="wrong-hint hidden" id="hint-riddle1">Подумай ещё...</p>
+    </div>
+  </div>
+
+  <!-- 4. Catch Hearts -->
+  <div class="screen" id="screen-catch">
+    <p class="screen-title">Лови сердечки!</p>
+    <div class="catch-counter"><span id="catch-count">0</span> / 5</div>
+    <div class="catch-field" id="catch-field"></div>
+  </div>
+
+  <!-- 5. Puzzle -->
+  <div class="screen" id="screen-puzzle">
+    <p class="screen-title">Собери сердце</p>
+    <div class="puzzle-board">
+      <div class="puzzle-grid" id="puzzle-grid"></div>
+      <div class="puzzle-pieces" id="puzzle-pieces"></div>
+    </div>
+  </div>
+
+  <!-- 6. Riddle 2 -->
+  <div class="screen" id="screen-riddle2">
+    <div class="riddle-box">
+      <p class="riddle-emoji">&#129300;</p>
+      <p class="riddle-text">Что можно подарить человеку,<br>не имея ничего в руках?</p>
+      <div class="riddle-options">
+        <button class="btn option" data-screen="riddle2" data-correct="true">Улыбку</button>
+        <button class="btn option" data-screen="riddle2" data-correct="false">Деньги</button>
+        <button class="btn option" data-screen="riddle2" data-correct="false">Цветы</button>
+      </div>
+      <p class="wrong-hint hidden" id="hint-riddle2">Подумай ещё...</p>
+    </div>
+  </div>
+
+  <!-- 7. Riddle 3 -->
+  <div class="screen" id="screen-riddle3">
+    <div class="riddle-box">
+      <p class="riddle-emoji">&#129300;</p>
+      <p class="riddle-text">Оно бьётся,<br>но его нельзя услышать,<br>когда рядом любимый человек.</p>
+      <div class="riddle-options">
+        <button class="btn option" data-screen="riddle3" data-correct="false">Время</button>
+        <button class="btn option" data-screen="riddle3" data-correct="true">Сердце</button>
+        <button class="btn option" data-screen="riddle3" data-correct="false">Стекло</button>
+      </div>
+      <p class="wrong-hint hidden" id="hint-riddle3">Подумай ещё...</p>
+    </div>
+  </div>
+
+  <!-- 8. Memory -->
+  <div class="screen" id="screen-memory">
+    <p class="screen-title">Найди все пары</p>
+    <div class="memory-grid" id="memory-grid"></div>
+  </div>
+
+  <!-- 9. Mystery Box -->
+  <div class="screen" id="screen-mystery">
+    <p class="screen-title">Выбери подарок</p>
+    <p class="mystery-hint">В одной из коробок спрятан сюрприз!</p>
+    <div class="mystery-boxes" id="mystery-boxes">
+      <div class="mystery-box" data-box="0"><span>&#127873;</span></div>
+      <div class="mystery-box" data-box="1"><span>&#127873;</span></div>
+      <div class="mystery-box" data-box="2"><span>&#127873;</span></div>
+    </div>
+  </div>
+
+  <!-- 10. Assembly -->
+  <div class="screen" id="screen-assembly">
+    <div class="assembly-area" id="assembly-area"></div>
+    <p class="assembly-text hidden" id="assembly-text">Сердце собрано!</p>
+    <button class="btn glow hidden" id="btn-to-final">Открыть поздравление</button>
+  </div>
+
+  <!-- 11. Final -->
+  <div class="screen" id="screen-final">
+    <div class="final-content">
+      <h2 class="final-title">Ника, с 8 марта!</h2>
+      <p class="final-text">Ты делаешь каждый день ярче и теплее. Спасибо за твою улыбку, за смех и за то, что ты — это ты.</p>
+      <p class="final-text">Пусть этот день будет наполнен радостью, а впереди ждёт только самое лучшее. Ты заслуживаешь всего самого прекрасного.</p>
+      <p class="final-text final-heart">Ты невероятная</p>
+      <button class="btn glow" id="btn-love">Нажми</button>
+      <p class="love-message hidden" id="love-message">Люблю тебя</p>
+    </div>
+  </div>
+
+  <!-- Piece overlay -->
+  <div class="piece-overlay hidden" id="piece-overlay">
+    <div class="piece-overlay-content">
+      <span class="piece-overlay-heart">&hearts;</span>
+      <p class="piece-overlay-text">Частичка сердца найдена!</p>
+    </div>
+  </div>
+
+  <!-- Easter egg -->
+  <div class="easter-egg hidden" id="easter-egg">Ты нашла секрет &hearts;</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
